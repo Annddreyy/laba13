@@ -11,13 +11,24 @@ interface User{
     void Password(String password);
 }
 
-class Employee implements User{
+class PrClass{
+    private String name;
+    PrClass(String name){
+        this.name = name;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+}
+class Employee extends PrClass implements User{
     public String name;
     private String login;
     private String password;
 
     Employee(String name){
-        this.name = name;
+        super(name);
+        this.name = this.getName();
     }
 
     public void Login(String login){
@@ -29,13 +40,14 @@ class Employee implements User{
     }
 }
 
-class Client implements User{
+class Client extends PrClass implements User{
     public String name;
     private String login;
     private String password;
 
     Client(String name){
-        this.name = name;
+        super(name);
+        this.name = this.getName();
     }
 
     public void Login(String login){
@@ -47,13 +59,14 @@ class Client implements User{
     }
 }
 
-class Admin implements User{
+class Admin extends PrClass implements User{
     public String name;
     private String login;
     private String password;
 
     Admin(String name){
-        this.name = name;
+        super(name);
+        this.name = this.getName();
     }
 
     public void Login(String login){
